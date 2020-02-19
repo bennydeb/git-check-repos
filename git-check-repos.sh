@@ -5,7 +5,7 @@ GIT_REPOS=$MAINDIR/git_repos.txt	# current list of valid repos
 GIT_OMIT=$MAINDIR/omit_repos.txt	# list of ignored repos
 GIT_ALL=$MAINDIR/all_repos.txt
 
-LOOK_IN=~/ 				# where in the fs to look for repos - could be an input-argument, yes... 
+LOOK_IN=~/ 				# where in the fs to look for repos - could be an input-argument, yes...
 
 # Printing options
 OIFS=$IFS #Save current end of line
@@ -107,7 +107,9 @@ check_repos_quick(){
   do
     echo "---------$COUNTER/$LN_RP-----------"
     cd $val;cd ..;pwd
-    if ! git diff --quiet # Check whether something has change in the repo
+    git diff --quiet
+    DIFF=$?
+    if [[ $DIFF -eq 1 ]]  || [[ $(git status -s) ]]  # Check whether something has change in the repo
     then
       bash --init-file <(echo "export PS1=$PS1_TMP;cd $val;cd ..;pwd;git status")
     else
@@ -129,7 +131,9 @@ list_repos_status(){
   do
     echo "---------$COUNTER/$LN_RP-----------"
     cd $val;cd ..;pwd
-    if ! git diff --quiet # Check whether something has change in the repo
+    git diff --quiet
+    DIFF=$?
+    if [[ $(git status -s) ]] # Check whether something has change in the repo
     then
       git status
     else
