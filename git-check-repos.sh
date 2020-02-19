@@ -5,7 +5,7 @@ GIT_REPOS=$MAINDIR/git_repos.txt	# current list of valid repos
 GIT_OMIT=$MAINDIR/omit_repos.txt	# list of ignored repos
 GIT_ALL=$MAINDIR/all_repos.txt
 
-LOOK_IN=~/ 				# where in the fs to look for repos
+LOOK_IN=~/ 				# where in the fs to look for repos - could be an input-argument, yes... 
 
 # Printing options
 OIFS=$IFS #Save current end of line
