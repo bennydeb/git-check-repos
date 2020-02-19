@@ -107,9 +107,7 @@ check_repos_quick(){
   do
     echo "---------$COUNTER/$LN_RP-----------"
     cd $val;cd ..;pwd
-    git diff --quiet
-    DIFF=$?
-    if [[ $DIFF -eq 1 ]]  || [[ $(git status -s) ]]  # Check whether something has change in the repo
+    if [[ $(git status -s) ]]  # Check whether something has change in the repo
     then
       bash --init-file <(echo "export PS1=$PS1_TMP;cd $val;cd ..;pwd;git status")
     else
@@ -131,8 +129,6 @@ list_repos_status(){
   do
     echo "---------$COUNTER/$LN_RP-----------"
     cd $val;cd ..;pwd
-    git diff --quiet
-    DIFF=$?
     if [[ $(git status -s) ]] # Check whether something has change in the repo
     then
       git status
