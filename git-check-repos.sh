@@ -1,4 +1,6 @@
 #!/bin/bash
+# TODO: Add verification of commits ahead/behind of origin/master.
+
 # HARDCODED options - change to
 MAINDIR=~/Code/git-check-repos		# script and files location
 GIT_REPOS=$MAINDIR/git_repos.txt	# current list of valid repos
@@ -11,7 +13,7 @@ LOOK_IN=~/ 				# where in the fs to look for repos - could be an input-argument,
 OIFS=$IFS #Save current end of line
 IFS=$'\n'
 
-#Should work fine on linux or macos
+#Should work fine on linux or macos. Taken from debian bash settings
 PS1_TMP='"\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w\[\033[00m\]\$ "'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
