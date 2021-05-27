@@ -2,7 +2,7 @@
 # TODO: Add verification of commits ahead/behind of origin/master.
 
 # HARDCODED options - change to
-MAINDIR=~/Code/git-check-repos		# script and files location
+MAINDIR=~/Code/.gitrepos		# script and files location
 GIT_REPOS=$MAINDIR/git_repos.txt	# current list of valid repos
 GIT_OMIT=$MAINDIR/omit_repos.txt	# list of ignored repos
 GIT_ALL=$MAINDIR/all_repos.txt
